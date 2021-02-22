@@ -22,7 +22,7 @@ module.exports = {
         accessToken: `${process.env.ACCESS_TOKEN}`,
       },
     },
-
+    "gatsby-plugin-styled-components",
     "gatsby-transformer-remark",
     "gatsby-plugin-react-helmet",
     "gatsby-transformer-sharp",
