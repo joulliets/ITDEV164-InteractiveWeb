@@ -2,15 +2,15 @@ import React from 'react';
 import { graphql } from "gatsby"
 import { Link } from 'gatsby';
 
-import Layout from '../components/layout';
-import Image from '../components/image';
-import SEO from '../components/seo';
+import { Layout } from "../components/Layout"
+import { Image } from '../components/image';
+import { Seo }  from '../components/Seo';
 
 const Contact = ({ data }) => {
   const { name, company, address } = data.site.siteMetadata.contact
   return (
     <Layout>
-      <SEO title="Contact" />
+      <Seo title="Contact" />
       <h1>Contact Us</h1>
       <p>Please send all inquiries to: </p>
       <div>{company}</div>

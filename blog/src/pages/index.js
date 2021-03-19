@@ -2,29 +2,30 @@ import React from 'react'
 import { graphql } from "gatsby"
 import { Link } from 'gatsby'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import { Layout } from "../components/Layout"
+import { Seo }  from "../components/Seo"
+import { List, ListItem } from "../components/List"
+
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" />
-    <ul>
+    <Seo title="Home" />
+    <List width={[1, 1 / 2, 2 / 3]} p={2}>
       {data.allContentfulBlogPost.edges.map(edge => (
-        <li>
+        <ListItem p={3} key={edge.node.id}>
           <Link to={edge.node.slug} key={edge.node.id}>
             {edge.node.title}
           </Link>
-          {edge.node.heroImage && (
           <div>
-            <img src={edge.node.heroImage.fluid.src} alt="hero pic" />
+            <img src={edge.node.heroImage.fluid.src} alt="Hero" />
           </div>
-          )}
           <div>{edge.node.body.childMarkdownRemark.excerpt}</div>
-        </li>
+        </ListItem>
       ))}
-    </ul>
+    </List>
   </Layout>
 )
+
 export default IndexPage
 
 export const query = graphql`
@@ -36,7 +37,7 @@ export const query = graphql`
           title
           slug
           heroImage {
-            fluid(maxWidth: 300) {
+            fluid(maxWidth: 600) {
               src
             }
           }
